@@ -32,30 +32,50 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (elements.actualValuePricing) elements.actualValuePricing.innerText = formattedActualValue;
                 if (elements.accessFeePricing) elements.accessFeePricing.innerText = formattedPrice;
             } catch(e) {
-                console.error(`Could not format currency ${currency}`, e);
+                console.error(`Could not format currency ${currency} for locale ${locale}.`, e);
+                // Fallback to simple formatting if Intl fails
+                const fallbackPrice = `${currency} ${Math.round(price).toLocaleString()}`;
+                const fallbackActualValue = `${currency} ${Math.round(actualValue).toLocaleString()}`;
+
+                if (elements.priceNote) elements.priceNote.innerText = fallbackPrice;
+                if (elements.actualValueHero) elements.actualValueHero.innerText = fallbackActualValue;
+                if (elements.todaysFeeHero) elements.todaysFeeHero.innerText = fallbackPrice;
+                if (elements.actualValuePricing) elements.actualValuePricing.innerText = fallbackActualValue;
+                if (elements.accessFeePricing) elements.accessFeePricing.innerText = fallbackPrice;
             }
         };
 
+        // Set default NGN prices immediately.
+        updateDomPrices(BASE_PRICE_NGN, ACTUAL_VALUE_NGN, 'NGN', 'en-NG');
+
         try {
-            const geoResponse = await fetch('https://ip-api.com/json/?fields=status,countryCode,currency');
+            // Use a more reliable geolocation service: ipapi.co
+            const geoResponse = await fetch('https://ipapi.co/json/');
             if (!geoResponse.ok) {
-                console.warn('Geolocation API failed. Prices will remain in NGN.');
+                console.warn('Geolocation API request failed. Prices will remain in NGN.');
                 return;
             }
             
             const geoData = await geoResponse.json();
-            // If geo lookup is successful and country is not Nigeria, then attempt to convert.
-            if (geoData.status === 'success' && geoData.countryCode && geoData.countryCode !== 'NG') {
-                const userCurrency = geoData.currency;
-                const userLocale = `en-${geoData.countryCode}`;
 
-                const ratesResponse = await fetch('https://open.er-api.com/v6/latest/NGN');
+            // If geo lookup is successful and currency is not NGN, then attempt to convert.
+            if (geoData && geoData.currency && geoData.currency !== 'NGN') {
+                const userCurrency = geoData.currency;
+                // Use country_code for locale from the new API
+                const userLocale = geoData.country_code ? `en-${geoData.country_code}` : 'en-US';
+
+                // Use a more reliable exchange rate service: exchangerate-api.com
+                const ratesResponse = await fetch('https://api.exchangerate-api.com/v4/latest/NGN');
                 if (!ratesResponse.ok) {
                     console.error('Failed to fetch exchange rates. Prices will remain in NGN.');
                     return;
                 }
 
                 const ratesData = await ratesResponse.json();
+                if (ratesData.result === 'error') {
+                     console.error('Exchange rate API returned an error:', ratesData['error-type']);
+                     return;
+                }
                 const rates = ratesData.rates;
                 const conversionRate = rates[userCurrency];
                 
@@ -64,11 +84,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     const convertedActualValue = ACTUAL_VALUE_NGN * conversionRate;
                     updateDomPrices(convertedPrice, convertedActualValue, userCurrency, userLocale);
                 } else {
-                    console.warn(`Currency '${userCurrency}' not found in rates. Prices will remain in NGN.`);
+                    console.warn(`Currency '${userCurrency}' not found in exchange rates. Prices will remain in NGN.`);
                 }
+            // Handle cases where geoData might indicate an error from the API itself
+            } else if (geoData && geoData.error) {
+                 console.warn('Geolocation service returned an error:', geoData.reason);
             }
         } catch (error) {
-            console.error('Error during currency conversion process:', error);
+            console.error('Error during currency conversion process. This might be due to a network issue or an ad-blocker. Prices will remain in NGN:', error);
         }
     };
 
