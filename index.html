@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Coursedemy | Lifetime Access to 30+ Online Courses</title>
+    <meta name="description" content="Unlock your potential with Coursedemy's 360° Skills Vault. Get lifetime access to over 30 courses in development, design, marketing, and more for a single, one-time payment. Start learning today!">
+    <meta name="keywords" content="online courses, skill development, lifetime access, digital skills, web development, graphic design, digital marketing, learn to code, coursedemy">
+    <link rel="canonical" href="https://coursedemy.site/">
+
+    <!-- Favicon Implementation -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3c1053">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://coursedemy.site/">
+    <meta property="og:title" content="Coursedemy | Lifetime Access to 30+ Online Courses">
+    <meta property="og:description" content="Unlock your potential with Coursedemy's 360° Skills Vault. Get lifetime access to over 30 courses in development, design, marketing, and more for a single, one-time payment.">
+    <meta property="og:image" content="https://coursedemy.site/assets/social-preview.jpg">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://coursedemy.site/">
+    <meta property="twitter:title" content="Coursedemy | Lifetime Access to 30+ Online Courses">
+    <meta property="twitter:description" content="Unlock your potential with Coursedemy's 360° Skills Vault. Get lifetime access to over 30 courses in development, design, marketing, and more for a single, one-time payment.">
+    <meta property="twitter:image" content="https://coursedemy.site/assets/social-preview.jpg">
+    
+    <!-- Structured Data (JSON-LD) for Rich Search Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Coursedemy - The 360° Skills Vault",
+      "image": "https://coursedemy.site/assets/social-preview.jpg",
+      "description": "A comprehensive bundle of over 30 online courses granting lifetime access to a complete library of skills in design, development, marketing, and more for a single one-time payment.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Coursedemy"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://coursedemy.site/",
+        "priceCurrency": "NGN",
+        "price": "30000",
+        "priceValidUntil": "2025-12-31",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "218"
+      }
+    }
+    </script>
+
+
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-purple: #3c1053;
+            --dark-purple-glass: rgba(26, 10, 36, 0.7);
+            --darker-purple-bg: #1a0a24;
+            --light-pink: #F2ADFE;
+            --gradient-start: #d373f0;
+            --gradient-end: #a053f5;
+            --text-white: #ffffff;
+            --text-light-gray: #e0e0e0;
+            --text-dark: #212529;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden; /* Fallback for browsers */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-purple);
+            color: var(--text-white);
+        }
+
+        .page-wrapper {
+            width: 100%;
+            overflow: hidden; /* The definitive fix for horizontal overflow */
+            position: relative;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            background-image: url('/assets/desktop-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Thin outline */
+        }
+
+        .hero-content-wrapper {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            padding: 1.5rem 0;
+            transition: all 0.3s ease-in-out;
+            z-index: 1000;
+        }
+        
+        /* Sticky Navbar Styling */
+        .navbar.sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--dark-purple-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+            animation: slideInDown 0.5s ease-out;
+        }
+        
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .navbar-brand img {
+            height: 28px; /* Reduced logo size */
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-white);
+            font-weight: 500;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--gradient-start);
+        }
+
+        .get-it-now-btn {
+            background: linear-gradient(45deg, var(--gradient-start), var(--light-pink));
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 700;
+            color: var(--primary-purple);
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .get-it-now-btn:hover {
+            color: var(--primary-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 25px rgba(242, 173, 254, 0.4);
+        }
+        
+        .navbar-toggler {
+            border: none;
+            color: var(--text-white);
+            font-size: 1.8rem;
+        }
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        /* --- Hero Content --- */
+        .hero-text h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 .highlight {
+            color: var(--light-pink);
+        }
+
+        .hero-text .sub-headline {
+            font-size: 1.1rem;
+            color: var(--text-light-gray);
+            margin: 1.5rem 0 2rem;
+            max-width: 500px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-cta {
+            background: linear-gradient(45deg, var(--gradient-start), var(--light-pink));
+            color: var(--primary-purple);
+            border-radius: 50px;
+            padding: 15px 35px;
+            font-weight: 700;
+            border: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-cta:hover {
+            color: var(--primary-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 25px rgba(242, 173, 254, 0.4);
+        }
+
+        .btn-cta b {
+            font-weight: 700;
+        }
+        
+        .security-note {
+            font-size: 0.9rem;
+            color: var(--text-light-gray);
+        }
+        
+        .value-prop {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .value-prop del {
+            color: #aaa;
+        }
+
+        .value-prop b {
+            font-weight: 700;
+        }
+
+        /* --- Hero Images --- */
+        .hero-image {
+            position: absolute;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .hero-image-desktop {
+            right: 0;
+            max-width: 50%;
+            height: auto;
+            display: none; /* Hidden by default, shown on large screens */
+        }
+        
+        .hero-image-mobile {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 500px; /* Prevents image from being too large on tablets */
+            display: block; /* Shown by default */
+        }
+        
+        /* --- General Section Styling --- */
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .section-title .highlight {
+            color: var(--light-pink);
+        }
+        
+        /* --- About Section --- */
+        .about-section {
+            padding: 100px 0;
+            position: relative;
+            background-color: #26073b; /* Darker background */
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .about-section .section-title {
+            text-align: left;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light-gray);
+            max-width: 800px;
+            margin: 0 auto 1.5rem auto;
+            text-align: center;
+        }
+        
+        .about-section .about-text {
+            max-width: none;
+            margin: 0 0 1.5rem 0;
+            text-align: left;
+        }
+
+        .about-section .about-text:last-of-type {
+            margin-bottom: 0;
+        }
+        
+        .about-image {
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            border-radius: 20px;
+        }
+
+        /* --- Features Section --- */
+        .features-section {
+            padding: 100px 0;
+            background-color: var(--darker-purple-bg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .features-section .section-title {
+            margin-bottom: 1.5rem;
+        }
+        .features-section .section-subtitle {
+            text-align: center;
+            color: var(--text-light-gray);
+            margin: -1rem auto 4rem auto;
+            font-size: 1.1rem;
+            max-width: 450px;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            background: rgba(0,0,0,0.2);
+        }
+        
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .course-item-card {
+            background: var(--dark-purple-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        a.course-item-card {
+            display: block;
+            text-decoration: none;
+        }
+        
+        a.course-item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        a.course-item-card .course-item-header h5 { color: var(--text-white); }
+        a.course-item-card p { color: var(--text-light-gray); }
+
+        .course-item-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .course-item-header .fa-check-circle {
+            color: #4CAF50;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .course-item-header h5 {
+            font-weight: 700;
+            margin-bottom: 0;
+            font-size: 1.1rem;
+            color: var(--text-white);
+        }
+
+        .course-item-card p {
+            font-size: 0.95rem;
+            color: var(--text-light-gray);
+            line-height: 1.6;
+            margin-left: 2.5rem; /* Align with title */
+            margin-bottom: 0;
+        }
+
+        .pricing-container {
+            margin-top: 4rem;
+            text-align: center;
+        }
+        .premium-tagline {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+            color: var(--text-light-gray);
+        }
+        .pricing-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .lifetime-access-text {
+            font-weight: 700;
+            line-height: 1.4;
+            text-align: center;
+        }
+        .pricing-box {
+            background-color: #000;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 250px;
+        }
+        .pricing-box .label {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .pricing-box .price {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--text-white);
+        }
+        .pricing-box .price del {
+            font-weight: 400;
+            font-size: 1.8rem;
+            color: #777;
+        }
+        .payment-link-wrapper {
+            margin-top: 2.5rem;
+        }
+        
+        .payment-link {
+            background: linear-gradient(45deg, var(--gradient-start), var(--light-pink));
+            color: var(--primary-purple);
+            border-radius: 50px;
+            padding: 15px 35px;
+            font-weight: 700;
+            border: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .payment-link:hover {
+            color: var(--primary-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 25px rgba(242, 173, 254, 0.4);
+        }
+
+        /* --- Packages Section --- */
+        .packages-section {
+            padding: 100px 0;
+            background-color: var(--darker-purple-bg);
+        }
+        .packages-section .section-title {
+            margin-bottom: 4rem;
+        }
+        .comparison-card {
+            background: var(--dark-purple-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        .comparison-card h3 {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .comparison-card li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light-gray);
+        }
+        .comparison-card li .fa-times-circle {
+            color: #ff5c5c;
+            font-size: 1.5rem;
+        }
+         .comparison-card li .fa-check-circle {
+            color: #4CAF50;
+            font-size: 1.5rem;
+        }
+        .coursedemy-way {
+            background: #110518;
+            border: 2px solid #5c2c70;
+        }
+        .coursedemy-way h3 {
+            color: var(--light-pink);
+        }
+
+        
+        /* --- Testimonials Section --- */
+        .testimonials-section {
+            padding: 100px 0;
+            background-color: #26073b; /* Darker background */
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonials-section .section-title {
+            margin-bottom: 4rem;
+        }
+
+        .testimonial-scroller {
+            width: 100%;
+            margin-bottom: 2rem;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        
+        .scrolling-content {
+            display: flex;
+            flex-wrap: nowrap;
+            width: fit-content;
+            will-change: transform;
+        }
+
+        .testimonial-scroller[data-direction="left"] .scrolling-content {
+            animation: scroll-left 35s linear infinite;
+        }
+
+        .testimonial-scroller[data-direction="right"] .scrolling-content {
+            animation: scroll-right 35s linear infinite;
+        }
+
+        .testimonial-scroller:hover .scrolling-content {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-left {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        @keyframes scroll-right {
+            from { transform: translateX(-50%); }
+            to { transform: translateX(0); }
+        }
+
+        .testimonial-card {
+            background: var(--dark-purple-glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 0 1rem;
+            width: 380px;
+            flex-shrink: 0;
+            color: var(--text-light-gray);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(242, 173, 254, 0.15) 0%, rgba(242, 173, 254, 0) 70%);
+            transform: translate(-100%, -100%);
+            transition: transform 0.6s ease;
+            z-index: 0;
+        }
+
+        .testimonial-card:hover::before {
+            transform: translate(20%, 20%);
+        }
+
+        .testimonial-card .fa-quote-left {
+            font-size: 2rem;
+            color: var(--light-pink);
+            opacity: 0.5;
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 1;
+        }
+
+        .testimonial-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+            padding-top: 2rem; /* Space for quote icon */
+        }
+
+        .testimonial-card .author {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-white);
+            text-align: right;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-card .author::before {
+            content: '— ';
+        }
+
+        /* --- FAQ Section --- */
+        .faq-section {
+            padding: 100px 0;
+            background-color: var(--darker-purple-bg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .faq-section .section-title {
+            margin-bottom: 4rem;
+        }
+        .accordion {
+            --bs-accordion-color: var(--text-light-gray);
+            --bs-accordion-bg: transparent;
+            --bs-accordion-border-color: rgba(255, 255, 255, 0.1);
+            --bs-accordion-border-radius: 15px;
+            --bs-accordion-inner-border-radius: 15px;
+            --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(211, 115, 240, 0.25);
+            --bs-accordion-active-color: var(--text-white);
+            --bs-accordion-active-bg: transparent;
+        }
+        .accordion-item {
+            background: var(--dark-purple-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin-bottom: 1rem;
+            border-radius: var(--bs-accordion-border-radius) !important;
+            border: 1px solid var(--bs-accordion-border-color);
+        }
+        .accordion-button {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .accordion-button:not(.collapsed) {
+            color: var(--text-white);
+            box-shadow: none;
+        }
+        .accordion-button:not(.collapsed)::after {
+            background-image: var(--bs-accordion-btn-active-icon);
+        }
+        .accordion-button::after {
+            --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23e0e0e0'%3e%3cpath fill-rule='evenodd' d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/%3e%3c/svg%3e");
+            --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z'/%3e%3c/svg%3e");
+        }
+        .accordion-body {
+            line-height: 1.7;
+        }
+
+        /* --- Footer --- */
+        .footer-cta {
+            background-color: #26073b;
+            padding: 80px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+        .footer-cta p {
+            font-size: 1.1rem;
+            color: var(--text-light-gray);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .site-footer {
+            background-color: var(--darker-purple-bg);
+            padding: 80px 0 20px 0;
+            font-size: 0.95rem;
+        }
+        .footer-about img {
+            height: 30px;
+            margin-bottom: 1.5rem;
+        }
+        .footer-about p {
+            color: var(--text-light-gray);
+            line-height: 1.7;
+        }
+        .footer-widget h5 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-white);
+        }
+        .footer-widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-widget ul li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-widget ul a {
+            color: var(--text-light-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-widget ul a:hover {
+            color: var(--gradient-start);
+        }
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .social-icons a {
+            color: var(--text-light-gray);
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: var(--gradient-start);
+            transform: translateY(-3px);
+        }
+        .copyright-bar {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 40px;
+            padding-top: 30px;
+            text-align: center;
+            color: #aaa;
+        }
+
+
+        /* --- Responsive Design --- */
+        @media (min-width: 992px) {
+            .hero-image-desktop {
+                display: block;
+            }
+            .hero-image-mobile {
+                display: none;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-brand img {
+                height: 20px;
+            }
+
+            .hero-section {
+                text-align: left;
+                background-image: url('/assets/mobile-background.jpg');
+            }
+
+            .hero-content-wrapper {
+                 padding-top: 1rem;
+                 padding-bottom: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+                color: var(--text-white);
+            }
+
+            .hero-text .sub-headline {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch; /* Makes buttons full width of their container */
+                max-width: 350px;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .value-prop {
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .value-prop .separator {
+                display: none;
+            }
+            
+            .navbar .container {
+                position: relative;
+            }
+
+            .navbar-collapse {
+                position: absolute;
+                top: calc(100% + 5px); /* Position it below the navbar header */
+                left: 0;
+                right: 0;
+                background-color: var(--dark-purple-glass);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 10px;
+                padding: 20px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                z-index: 1050;
+            }
+
+            .get-it-now-btn {
+                padding: 8px 20px;
+                font-size: 0.85rem;
+            }
+
+            .hero-image {
+                position: relative; /* Override absolute positioning */
+                bottom: auto;
+                z-index: auto;
+                margin-top: -5vh; /* Pull image up slightly */
+            }
+
+            .hero-image-mobile {
+                left: auto; /* Override absolute positioning */
+                transform: none; /* Override absolute positioning */
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .about-section {
+                padding: 80px 0;
+            }
+            
+            .about-section .section-title {
+                text-align: center;
+            }
+
+            .about-section .row > .col-lg-6:first-child {
+                margin-bottom: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .about-text {
+                font-size: 1rem;
+            }
+            
+            .about-section .about-text {
+                text-align: left;
+            }
+            
+            .features-section {
+                padding: 80px 0;
+            }
+            
+            .course-grid {
+                grid-template-columns: 1fr; /* Stack cards on mobile */
+            }
+            
+            .pricing-details {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .packages-section {
+                padding: 80px 0;
+            }
+
+            .comparison-card {
+                margin-bottom: 2rem;
+            }
+
+
+            .testimonials-section {
+                padding: 80px 0;
+            }
+
+            .testimonial-card {
+                width: 220px;
+                padding: 1.25rem;
+            }
+
+            .testimonial-card p {
+                font-size: 0.9rem;
+            }
+
+            .testimonial-card .fa-quote-left {
+                font-size: 1.8rem;
+                top: 1.25rem;
+                left: 1.25rem;
+            }
+
+            .testimonial-card .author {
+                font-size: 1rem;
+            }
+            
+            .faq-section, .footer-cta {
+                padding: 80px 0;
+            }
+
+            .footer-cta h2 {
+                font-size: 2rem;
+            }
+            
+            .site-footer {
+                padding: 60px 0 20px 0;
+                text-align: center;
+            }
+
+            .footer-widget {
+                margin-bottom: 2.5rem;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+    <section class="hero-section">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="/assets/logo.svg" alt="Coursedemy Logo">
+                </a>
+
+                <!-- Mobile: Button Group -->
+                <div class="d-lg-none d-flex align-items-center">
+                    <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="btn get-it-now-btn">GET IT NOW</a>
+                    <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                       <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#faq">Faqs</a></li>
+                    </ul>
+                    <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="btn get-it-now-btn d-none d-lg-block">GET IT NOW</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="hero-content-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 col-xl-6">
+                        <div class="hero-text" data-aos="fade-up">
+                            <h1>The Last Course Bundle <span class="highlight">You'll Ever Need To Buy.</span></h1>
+                            <p class="sub-headline">
+                                Instantly unlock our entire vault of 20+ premium courses. Master the skills that get you hired, all for a single payment.
+                            </p>
+                            <div class="cta-buttons">
+                                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="btn btn-cta">Claim My <b>85% Discount</b></a>
+                                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="btn btn-cta">Get Lifetime Access</a>
+                            </div>
+                            <p class="security-note">
+                                Secure one-time payment of <b><span id="price-note">₦30,000</span></b> via Selar. No hidden fees.
+                            </p>
+                             <div class="value-prop">
+                                <span>Actual Value: <del><span id="actual-value-hero">₦200,000</span></del></span>
+                                <span class="separator">|</span>
+                                <span>Today's Fee: <b><span id="todays-fee-hero">₦30,000</span></b></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Images -->
+        <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593">
+            <img src="/assets/hero-image-desktop.png" alt="Woman working on a laptop" class="hero-image hero-image-desktop" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+        </a>
+        <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593">
+            <img src="/assets/hero-image-mobile.png" alt="Woman working on a laptop" class="hero-image hero-image-mobile">
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="row align-items-center g-5 justify-content-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593">
+                        <img src="/assets/about-image.jpg" alt="A person learning new skills on a computer" class="img-fluid about-image">
+                    </a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h2 class="section-title">
+                        What's Inside The <span class="highlight">360° Skills Vault?</span>
+                    </h2>
+                    <p class="about-text">
+                        In today's fast-paced digital world, the internet is a maze of overpriced courses and confusing tutorials. We created The 360° Skills Vault to cut through the noise. It’s not just another course bundle; it's a complete, curated library designed to equip you with the most in-demand, high-income skills without the complexity or recurring fees.
+                    </p>
+                    <p class="about-text">
+                       For a single, one-time payment, you unlock lifetime access to our entire vault of over 20 premium, expertly-crafted courses covering the full spectrum of modern expertise. From design to development, master the practical application needed to excel in your career or launch your own ventures. This is more than an investment in your education; it's an investment in your future.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">The 360° <span class="highlight">Skills Vault</span></h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Every Skill You Need, All In One Place</p>
+            
+            <div class="course-grid">
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Adobe Illustrator Course</h5></div><p>Master vector graphics, logos, and illustrations that scale to any size. The industry standard for professional design.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Photoshop Design Course</h5></div><p>Learn photo manipulation, digital painting, and graphic design to create stunning visuals and professional-grade images.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Canva Graphic Design Course</h5></div><p>Quickly create beautiful graphics for social media, presentations, and marketing materials with the ultimate easy-to-use design tool.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Shopify Course</h5></div><p>Build, manage, and scale your own successful e-commerce store from scratch. No coding experience required.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Wordpress Course</h5></div><p>Create powerful blogs, portfolios, and business websites with the world's most popular content management system.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Net Development Course Bundle</h5></div><p>Dive into Microsoft's powerful framework to build robust web applications, APIs, and enterprise-level software.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>SEO Optimisation Course</h5></div><p>Drive organic traffic to your website by mastering the art and science of Search Engine Optimization. Rank higher on Google.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>YouTube Courses</h5></div><p>Learn to create, grow, and monetize a successful YouTube channel, from video production to audience engagement.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Digital Marketing Bundle</h5></div><p>A complete guide to online marketing, including social media, email marketing, content strategy, and paid advertising.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>After Effect Course Bundle</h5></div><p>Bring your creative visions to life with stunning motion graphics, visual effects, and professional video animations.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Adobe Premier Pro Course</h5></div><p>Master professional video editing. Learn to cut, color, and produce high-quality videos for film, TV, and the web.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>3D Modelling & Animation Course</h5></div><p>Create breathtaking 3D models and animations for games, films, and virtual reality using industry-standard software.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Game Development Course</h5></div><p>Learn the fundamentals of game design and development. Build your own interactive games from concept to completion.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Auto Cad Course Bundle</h5></div><p>Master computer-aided design to create precise 2D and 3D drawings for architecture, engineering, and construction.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Affiliate Marketing Course</h5></div><p>Build a passive income stream by learning how to effectively promote products and earn commissions online.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Ajax Development</h5></div><p>Enhance user experience by building fast, dynamic web applications that can update content without reloading the page.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Android Studio Development</h5></div><p>Design and build professional Android apps. Take your mobile app ideas from concept to the Google Play Store.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Website Development Courses</h5></div><p>Build stunning, responsive websites from the ground up. Learn HTML, CSS, JavaScript, and the frameworks that power the modern web.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Mobile App Development Courses</h5></div><p>Master cross-platform development to build beautiful, native-compiled applications for mobile, web, and desktop from a single codebase.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Influencer Marketing Bundle</h5></div><p>Learn the strategies to collaborate with influencers, manage campaigns, and drive massive brand awareness.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Copywriting Course Bundle</h5></div><p>Master the art of persuasive writing. Craft compelling copy that sells products, builds brands, and engages audiences.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>UI/UX Course Bundle</h5></div><p>Design intuitive and beautiful user interfaces. Learn the principles of user experience to create products people love to use.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Ethical Hacking Course Bundle</h5></div><p>Discover the tools and techniques used to protect systems. Learn to think like a hacker to become an impenetrable defender.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Freelancing Course Bundle</h5></div><p>Launch your freelance career. Learn how to find clients, price your services, and build a sustainable business you love.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>AI And Chatgpt Courses</h5></div><p>Harness the power of Artificial Intelligence. Learn to leverage large language models like ChatGPT for innovation and efficiency.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>NFT, Web3 Design & Development</h5></div><p>Step into the future of the internet. Learn to create, design, and develop for the decentralized world of blockchain and NFTs.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Cryptocurrency Trading & Dev</h5></div><p>Understand the crypto market, learn effective trading strategies, and explore the development of blockchain applications.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Data Analysis Course</h5></div><p>Turn raw data into actionable insights. Learn to use tools like Python and SQL to analyze data and drive business decisions.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Python Course Bundle</h5></div><p>Master the world's most popular programming language. From web development to data science, Python can do it all.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Arduino & Hardware Programming</h5></div><p>Dive into the world of electronics. Learn to program microcontrollers and build your own interactive hardware projects.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Hardware Development Bundle</h5></div><p>From circuit design to prototyping, learn the complete process of creating and developing physical electronic products.</p></a>
+                <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="course-item-card" data-aos="fade-up"><div class="course-item-header"><i class="fas fa-check-circle"></i><h5>Angular JS Courses</h5></div><p>Build dynamic, single-page web applications with this powerful front-end framework backed by Google.</p></a>
+            </div>
+
+            <div class="pricing-container" data-aos="fade-up">
+                <p class="premium-tagline">Premium Clear, Actionable Video lessons you can watch at your own pace</p>
+                <div class="pricing-details">
+                    <div class="lifetime-access-text">
+                        ONE BUNDLE,<br>
+                        ONE PAYMENT,<br>
+                        LIFETIME ACCESS
+                    </div>
+                    <div class="pricing-box">
+                        <div class="label">ACTUAL VALUE:</div>
+                        <div class="price"><del><span id="actual-value-pricing">₦200,000</span></del></div>
+                    </div>
+                    <div class="pricing-box">
+                        <div class="label">ACCESS FEE:</div>
+                        <div class="price"><b><span id="access-fee-pricing">₦30,000</span></b></div>
+                    </div>
+                </div>
+                <div class="payment-link-wrapper">
+                    <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="payment-link">
+                        GET IT NOW
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages-section" id="packages">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                Unbeatable Value, <span class="highlight">Simplified</span>
+            </h2>
+            <div class="row justify-content-center g-4 g-lg-5">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="comparison-card old-way">
+                        <h3>The Old Way</h3>
+                        <ul>
+                            <li><i class="fas fa-times-circle"></i> Expensive Monthly Subscriptions</li>
+                            <li><i class="fas fa-times-circle"></i> Pay Per Course (Avg. $100+ each)</li>
+                            <li><i class="fas fa-times-circle"></i> Limited-Time Access to Content</li>
+                            <li><i class="fas fa-times-circle"></i> Constant Upsells & Hidden Fees</li>
+                            <li><i class="fas fa-times-circle"></i> Fragmented, Incomplete Skill Sets</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+                    <div class="comparison-card coursedemy-way">
+                        <h3>The Coursedemy Way</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> One-Time, Affordable Payment</li>
+                            <li><i class="fas fa-check-circle"></i> All 30+ Courses Included Instantly</li>
+                            <li><i class="fas fa-check-circle"></i> Unlimited Lifetime Access</li>
+                            <li><i class="fas fa-check-circle"></i> All Future Updates Included Free</li>
+                            <li><i class="fas fa-check-circle"></i> A Complete 360° Skill Library</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                Hear From Our <span class="highlight">Successful Students</span>
+            </h2>
+        </div>
+        <div class="testimonial-scroller" data-direction="left" data-aos="fade-up" data-aos-delay="100">
+            <div class="scrolling-content">
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>Coursedemy is a game-changer. I went from zero coding knowledge to landing a junior developer role in just 4 months. The content is practical and straight to the point.</p><h5 class="author">Samuel O.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>The UI/UX design course was phenomenal. I was able to build a solid portfolio that got me noticed by top agencies. Best investment I've made in my career.</p><h5 class="author">Aisha B.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>I always wanted to get into digital marketing but didn't know where to start. The 360° Skills Vault gave me a clear path. The community support is amazing too!</p><h5 class="author">David L.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>Lifetime access for this price is an absolute steal. The quality of the courses is on par with platforms that charge hundreds of dollars per course. Highly recommended!</p><h5 class="author">Chiamaka E.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>The project-based learning approach is what sets Coursedemy apart. You're not just watching videos; you're building real-world applications. It's incredibly effective.</p><h5 class="author">Femi A.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>I was skeptical at first, but the depth of content in the data analysis track blew me away. I've been able to apply these skills directly to my job and got a promotion.</p><h5 class="author">Grace I.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>Finally, a course bundle that respects your wallet and your time. No fluff, just pure, actionable knowledge. This is the future of online learning.</p><h5 class="author">Michael P.</h5></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>Coursedemy is a game-changer. I went from zero coding knowledge to landing a junior developer role in just 4 months. The content is practical and straight to the point.</p><h5 class="author">Samuel O.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>The UI/UX design course was phenomenal. I was able to build a solid portfolio that got me noticed by top agencies. Best investment I've made in my career.</p><h5 class="author">Aisha B.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>I always wanted to get into digital marketing but didn't know where to start. The 360° Skills Vault gave me a clear path. The community support is amazing too!</p><h5 class="author">David L.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>Lifetime access for this price is an absolute steal. The quality of the courses is on par with platforms that charge hundreds of dollars per course. Highly recommended!</p><h5 class="author">Chiamaka E.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>The project-based learning approach is what sets Coursedemy apart. You're not just watching videos; you're building real-world applications. It's incredibly effective.</p><h5 class="author">Femi A.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>I was skeptical at first, but the depth of content in the data analysis track blew me away. I've been able to apply these skills directly to my job and got a promotion.</p><h5 class="author">Grace I.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>Finally, a course bundle that respects your wallet and your time. No fluff, just pure, actionable knowledge. This is the future of online learning.</p><h5 class="author">Michael P.</h5></div>
+            </div>
+        </div>
+
+        <div class="testimonial-scroller" data-direction="right" data-aos="fade-up" data-aos-delay="200">
+             <div class="scrolling-content">
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>The value is insane. I've learned more from this bundle in two months than I did in two years of watching random YouTube tutorials. My freelance business has exploded.</p><h5 class="author">Nneka U.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>As a busy professional, I appreciated how the courses were structured. I could learn at my own pace without feeling overwhelmed. The mobile app course is top-tier.</p><h5 class="author">Tunde K.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>This isn't just a course bundle; it's a career launchpad. The skills are so in-demand. I feel confident and prepared for the tech industry now.</p><h5 class="author">Fatima S.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>I bought this for the graphic design courses but ended up falling in love with copywriting too. It's opened up so many new income streams for me. Thank you!</p><h5 class="author">Jennifer A.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>The instructors are industry experts who know how to teach complex topics in an easy-to-understand way. I never felt lost or stuck. Worth every penny.</p><h5 class="author">Emmanuel J.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>The one-time payment model is a breath of fresh air. No subscriptions, no hidden fees. Just pure, unadulterated access to a treasure trove of knowledge.</p><h5 class="author">Blessing O.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>I've recommended Coursedemy to all my friends. The quality, the price, the community... it's the complete package for anyone serious about upskilling.</p><h5 class="author">Isaac M.</h5></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>The value is insane. I've learned more from this bundle in two months than I did in two years of watching random YouTube tutorials. My freelance business has exploded.</p><h5 class="author">Nneka U.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>As a busy professional, I appreciated how the courses were structured. I could learn at my own pace without feeling overwhelmed. The mobile app course is top-tier.</p><h5 class="author">Tunde K.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>This isn't just a course bundle; it's a career launchpad. The skills are so in-demand. I feel confident and prepared for the tech industry now.</p><h5 class="author">Fatima S.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>I bought this for the graphic design courses but ended up falling in love with copywriting too. It's opened up so many new income streams for me. Thank you!</p><h5 class="author">Jennifer A.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>The instructors are industry experts who know how to teach complex topics in an easy-to-understand way. I never felt lost or stuck. Worth every penny.</p><h5 class="author">Emmanuel J.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>The one-time payment model is a breath of fresh air. No subscriptions, no hidden fees. Just pure, unadulterated access to a treasure trove of knowledge.</p><h5 class="author">Blessing O.</h5></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>I've recommended Coursedemy to all my friends. The quality, the price, the community... it's the complete package for anyone serious about upskilling.</p><h5 class="author">Isaac M.</h5></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                Frequently Asked <span class="highlight">Questions</span>
+            </h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    How long do I have access to the courses?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    You get <strong>unlimited lifetime access</strong> to all 30+ courses in the 360° Skills Vault. Once you enroll, the courses are yours forever, including all future updates and additions, with no extra cost.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Are there any recurring fees or subscriptions?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Absolutely not. The 360° Skills Vault is a <strong>one-time payment</strong>. You pay once and get lifetime access to everything. There are no hidden fees, monthly subscriptions, or recurring charges.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                     What if I'm a complete beginner?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    This bundle is perfect for you! The courses are designed to be beginner-friendly, starting with the fundamentals and gradually advancing to more complex topics. You can learn at your own pace and build a solid foundation in each skill.
+                                </div>
+                            </div>
+                        </div>
+                         <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                     Are the courses updated?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes! The digital world is always evolving, and so is our content. We regularly update our courses to reflect the latest industry standards and technologies. As a lifetime member, you get access to all these updates for free.
+                                </div>
+                            </div>
+                        </div>
+                         <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                     What payment methods are accepted?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We use Selar, a secure and trusted payment gateway. This allows you to pay using a variety of methods, including debit/credit cards, bank transfers, USSD, and more, depending on your location.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta" data-aos="fade-up">
+        <div class="container">
+            <h2>Ready to <span class="highlight">Unlock Your Future?</span></h2>
+            <p>Get lifetime access to the entire 360° Skills Vault today and start building the high-income skills you need to succeed. Your journey starts now.</p>
+            <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="btn get-it-now-btn btn-lg">GET IT NOW</a>
+        </div>
+    </section>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about" data-aos="fade-up" data-aos-delay="100">
+                    <img src="/assets/logo.svg" alt="Coursedemy Logo">
+                    <p>Coursedemy is dedicated to providing accessible, high-quality education that empowers individuals to achieve their career goals without financial barriers.</p>
+                </div>
+
+                <div class="col-lg-2 offset-lg-1 col-md-6 footer-widget" data-aos="fade-up" data-aos-delay="200">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#packages">Packages</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6 footer-widget" data-aos="fade-up" data-aos-delay="300">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#faq">FAQs</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-widget" data-aos="fade-up" data-aos-delay="400">
+                    <h5>Connect With Us</h5>
+                    <div class="social-icons">
+                        <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright-bar">
+                © 2025 Coursedemy. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+    
+</div> <!-- End Page Wrapper -->
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate on Scroll)
+        AOS.init({
+            once: true, // Whether animation should happen only once - while scrolling down
+            duration: 800, // values from 0 to 3000, with step 50ms
+        });
+
+        // Sticky Navbar Logic
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) { // Add sticky class after scrolling down 50px
+                navbar.classList.add('sticky');
+            } else {
+                navbar.classList.remove('sticky');
+            }
+        });
+    </script>
+    <script src="main.js" type="module" defer></script>
+</body>
+</html>
