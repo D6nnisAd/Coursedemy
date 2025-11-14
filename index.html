@@ -96,6 +96,7 @@
             font-family: 'Montserrat', sans-serif;
             background-color: var(--primary-purple);
             color: var(--text-white);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .page-wrapper {
@@ -197,6 +198,30 @@
         }
         .navbar-toggler:focus {
             box-shadow: none;
+        }
+        
+        /* --- Theme Toggle Button --- */
+        .theme-toggle-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-white);
+            border-radius: 50px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-white);
+        }
+        
+        .theme-toggle-btn:focus {
+            box-shadow: 0 0 0 0.25rem rgba(211, 115, 240, 0.25);
         }
 
         /* --- Hero Content --- */
@@ -775,7 +800,119 @@
             text-align: center;
             color: #aaa;
         }
+        
+        /* --- Light Theme Variables & Overrides --- */
+        body[data-theme='light'] {
+            --primary-purple: #ffffff;
+            --dark-purple-glass: rgba(248, 247, 250, 0.7);
+            --darker-purple-bg: #f8f7fa;
+            --light-pink: #a053f5;
+            --text-white: #24092C;
+            --text-light-gray: #5a5a5a;
+            --text-dark: #212529;
 
+            color: var(--text-dark);
+        }
+
+        body[data-theme='light'] .hero-section {
+            background-image: none;
+            border-bottom-color: rgba(0, 0, 0, 0.1);
+        }
+        body[data-theme='light'] .navbar.sticky {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        body[data-theme='light'] .navbar-nav .nav-link {
+            color: var(--text-dark);
+        }
+        body[data-theme='light'] .navbar-nav .nav-link:hover,
+        body[data-theme='light'] .navbar-nav .nav-link.active {
+            color: var(--gradient-end);
+        }
+        body[data-theme='light'] .navbar-toggler {
+            color: var(--text-dark);
+        }
+        body[data-theme='light'] .hero-text h1 .highlight {
+            color: var(--gradient-end);
+        }
+        body[data-theme='light'] .about-section,
+        body[data-theme='light'] .testimonials-section {
+            background-color: #f8f7fa;
+            border-top-color: rgba(0, 0, 0, 0.1);
+        }
+        body[data-theme='light'] .features-section,
+        body[data-theme='light'] .packages-section,
+        body[data-theme='light'] .faq-section,
+        body[data-theme='light'] .site-footer {
+            background-color: #ffffff;
+            border-top-color: rgba(0, 0, 0, 0.1);
+        }
+        body[data-theme='light'] .course-item-card,
+        body[data-theme='light'] .comparison-card,
+        body[data-theme='light'] .testimonial-card,
+        body[data-theme='light'] .accordion-item {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            backdrop-filter: none;
+        }
+        body[data-theme='light'] a.course-item-card:hover,
+        body[data-theme='light'] .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        body[data-theme='light'] a.course-item-card .course-item-header h5 {
+            color: var(--text-dark);
+        }
+        body[data-theme='light'] a.course-item-card p {
+            color: var(--text-light-gray);
+        }
+        body[data-theme='light'] .pricing-box {
+            background-color: #f8f7fa;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        body[data-theme='light'] .pricing-box .label { color: #777; }
+        body[data-theme='light'] .pricing-box .price { color: var(--text-dark); }
+        body[data-theme='light'] .pricing-box .price del { color: #999; }
+        body[data-theme='light'] .features-section .section-subtitle {
+             background: #f8f7fa;
+             border-color: rgba(0,0,0,0.1);
+        }
+        body[data-theme='light'] .coursedemy-way {
+            background: #f8f7fa;
+            border: 2px solid #a053f5;
+        }
+        body[data-theme='light'] .coursedemy-way h3 { color: #a053f5; }
+        body[data-theme='light'] .testimonial-card .fa-quote-left { color: var(--gradient-end); }
+        body[data-theme='light'] .testimonial-card::before { display: none; }
+        body[data-theme='light'] .accordion {
+            --bs-accordion-color: var(--text-light-gray);
+            --bs-accordion-border-color: rgba(0, 0, 0, 0.1);
+            --bs-accordion-active-color: var(--text-dark);
+        }
+        body[data-theme='light'] .accordion-button::after {
+            --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%235a5a5a'%3e%3cpath fill-rule='evenodd' d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/%3e%3c/svg%3e");
+            --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2324092C'%3e%3cpath fill-rule='evenodd' d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z'/%3e%3c/svg%3e");
+        }
+        body[data-theme='light'] .footer-cta {
+            background-color: #f8f7fa;
+            border-top-color: rgba(0, 0, 0, 0.1);
+        }
+        body[data-theme='light'] .footer-widget ul a { color: var(--text-light-gray); }
+        body[data-theme='light'] .footer-widget ul a:hover { color: var(--gradient-end); }
+        body[data-theme='light'] .social-icons a { color: var(--text-light-gray); }
+        body[data-theme='light'] .social-icons a:hover { color: var(--gradient-end); }
+        body[data-theme='light'] .copyright-bar {
+            border-top-color: rgba(0, 0, 0, 0.1);
+            color: #777;
+        }
+        body[data-theme='light'] .theme-toggle-btn {
+            border-color: rgba(0, 0, 0, 0.2);
+            color: var(--text-dark);
+        }
+        body[data-theme='light'] .theme-toggle-btn:hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-dark);
+        }
 
         /* --- Responsive Design --- */
         @media (min-width: 992px) {
@@ -796,6 +933,9 @@
                 text-align: left;
                 background-image: url('assets/mobile-background.png');
             }
+            body[data-theme='light'] .hero-section {
+                 background-image: none;
+            }
 
             .hero-content-wrapper {
                  padding-top: 1rem;
@@ -805,6 +945,10 @@
             .hero-text h1 {
                 font-size: 2.2rem;
                 color: var(--text-white);
+            }
+            
+            body[data-theme='light'] .hero-text h1 {
+                color: var(--text-dark);
             }
 
             .hero-text .sub-headline {
@@ -847,6 +991,11 @@
                 padding: 20px;
                 border: 1px solid rgba(255, 255, 255, 0.1);
                 z-index: 1050;
+            }
+            
+            body[data-theme='light'] .navbar-collapse {
+                 border: 1px solid rgba(0, 0, 0, 0.1);
+                 box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             }
 
             .get-it-now-btn {
@@ -960,7 +1109,7 @@
         }
     </style>
 </head>
-<body>
+<body data-theme="dark">
 
 <div class="page-wrapper">
 
@@ -988,7 +1137,12 @@
                         <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
                         <li class="nav-item"><a class="nav-link" href="#faq">Faqs</a></li>
                     </ul>
-                    <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="btn get-it-now-btn d-none d-lg-block">GET IT NOW</a>
+                    <div class="d-flex align-items-center">
+                        <button id="theme-toggle" class="btn theme-toggle-btn me-2" aria-label="Toggle theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <a href="https://selar.com/p/6p767567ka?affiliate=75wvv91593" class="btn get-it-now-btn d-none d-lg-block">GET IT NOW</a>
+                    </div>
                 </div>
             </div>
         </nav>
