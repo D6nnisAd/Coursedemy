@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             const geoData = await geoResponse.json();
-            // If geo lookup is successful and currency is not NGN, then attempt to convert.
-            if (geoData.status === 'success' && geoData.currency && geoData.currency !== 'NGN') {
+            // If geo lookup is successful and country is not Nigeria, then attempt to convert.
+            if (geoData.status === 'success' && geoData.countryCode && geoData.countryCode !== 'NG') {
                 const userCurrency = geoData.currency;
                 const userLocale = `en-${geoData.countryCode}`;
 
@@ -77,17 +77,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- THEME TOGGLE ---
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
+    const navbarLogo = document.getElementById('navbar-logo');
+    const footerLogo = document.getElementById('footer-logo');
 
     const applyTheme = (theme) => {
         body.dataset.theme = theme;
         localStorage.setItem('theme', theme);
         const icon = themeToggle.querySelector('i');
+
         if (theme === 'light') {
             icon.classList.remove('fa-moon');
             icon.classList.add('fa-sun');
+            if (navbarLogo) navbarLogo.src = 'assets/logo-black.svg';
+            if (footerLogo) footerLogo.src = 'assets/logo-black.svg';
         } else {
             icon.classList.remove('fa-sun');
             icon.classList.add('fa-moon');
+            if (navbarLogo) navbarLogo.src = 'assets/logo.svg';
+            if (footerLogo) footerLogo.src = 'assets/logo.svg';
         }
     };
 

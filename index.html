@@ -815,7 +815,6 @@
         }
 
         body[data-theme='light'] .hero-section {
-            background-image: none;
             border-bottom-color: rgba(0, 0, 0, 0.1);
         }
         body[data-theme='light'] .navbar.sticky {
@@ -932,9 +931,6 @@
             .hero-section {
                 text-align: left;
                 background-image: url('assets/mobile-background.png');
-            }
-            body[data-theme='light'] .hero-section {
-                 background-image: none;
             }
 
             .hero-content-wrapper {
@@ -1117,7 +1113,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="assets/logo.svg" alt="Coursedemy Logo">
+                    <img src="assets/logo.svg" alt="Coursedemy Logo" id="navbar-logo">
                 </a>
 
                 <!-- Mobile: Button Group -->
@@ -1446,7 +1442,7 @@
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6 footer-about" data-aos="fade-up" data-aos-delay="100">
-                    <img src="assets/logo.svg" alt="Coursedemy Logo">
+                    <img src="assets/logo.svg" alt="Coursedemy Logo" id="footer-logo">
                     <p>Coursedemy is dedicated to providing accessible, high-quality education that empowers individuals to achieve their career goals without financial barriers.</p>
                 </div>
 
